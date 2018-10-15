@@ -9,11 +9,10 @@
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <liferay-theme:defineObjects/>
-
 <portlet:defineObjects/>
 
-<c:if test="${!empty weather && !empty city}">
-	<p>It is <fmt:formatNumber value="${weather.temperature}" type="number" maxFractionDigits="1"/> degrees in ${city}, so...</p>
+<c:if test="${!empty weather}">
+	<p>It is <fmt:formatNumber value="${weather.temperature}" type="number" maxFractionDigits="1"/> degrees<c:if test="${!empty city}"> in ${city}</c:if>, so...</p>
 	<c:choose>
 		<c:when test="${weather.temperature <= 0}">
 			<p><img src="${renderRequest.contextPath}/images/scarf.jpg"/></p>
