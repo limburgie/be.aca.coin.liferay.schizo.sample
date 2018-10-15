@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>be.aca.coin.liferay</groupId>
+		<artifactId>schizosample</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>be.aca.coin.liferay.weather.impl.openweathermap</artifactId>
+	<name>Weather OpenWeatherMap Implementation</name>
+	<packaging>bundle</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>4.0.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<unpackBundle>true</unpackBundle>
+					<instructions>
+						<_dsannotations>*</_dsannotations>
+						<Bundle-Name>${project.name}</Bundle-Name>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Import-Package>!android.os,!android.util,!org.conscrypt,*</Import-Package>
+						<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- OWM API -->
+		<dependency>
+			<groupId>net.aksingh</groupId>
+			<artifactId>owm-japis</artifactId>
+			<version>2.5.2.3</version>
+
+		</dependency>
+
+		<!-- Weather API -->
+		<dependency>
+			<groupId>be.aca.coin.liferay</groupId>
+			<artifactId>be.aca.coin.liferay.weather.api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Liferay -->
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.portal.kernel</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- OSGi -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.cmpn</artifactId>
+			<version>6.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.core</artifactId>
+			<version>5.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+			<version>1.3.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+	</dependencies>
+</project>
