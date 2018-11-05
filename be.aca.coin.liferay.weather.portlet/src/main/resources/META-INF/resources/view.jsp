@@ -12,7 +12,7 @@
 <portlet:defineObjects/>
 
 <c:if test="${!empty weather}">
-	<p>It is <fmt:formatNumber value="${weather.temperature}" type="number" maxFractionDigits="1"/> degrees<c:if test="${!empty city}"> in ${city}</c:if>, so...</p>
+	<p>It is currently <fmt:formatNumber value="${weather.temperature}" type="number" maxFractionDigits="1"/>&deg;C<c:if test="${!empty city}"> in ${city}</c:if> so...</p>
 	<c:choose>
 		<c:when test="${weather.temperature <= 0}">
 			<p><img src="${renderRequest.contextPath}/images/scarf.jpg"/></p>

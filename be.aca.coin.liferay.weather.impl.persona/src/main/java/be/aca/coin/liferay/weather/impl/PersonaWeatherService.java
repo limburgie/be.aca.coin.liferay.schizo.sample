@@ -27,10 +27,9 @@ public class PersonaWeatherService implements WeatherService {
 			JsonObject weather = dataContext.getAsJsonObject("weather");
 
 			if (weather != null) {
-				String type = weather.get("type").getAsString();
 				float temperature = weather.get("temperature").getAsFloat();
 
-				return new Weather(WeatherType.valueOf(type), temperature);
+				return new Weather(WeatherType.UNKNOWN, temperature);
 			}
 		}
 
